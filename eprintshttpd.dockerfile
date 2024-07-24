@@ -14,7 +14,7 @@ RUN yum -y install httpd eprints
 RUN yum clean all
 
 # Copy EPrints configuration
-COPY eprints.cfg /etc/eprints/eprints.cfg
+# COPY eprints.cfg /etc/eprints/eprints.cfg
 
 # Expose the HTTP port
 EXPOSE 80
