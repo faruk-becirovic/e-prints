@@ -14,6 +14,8 @@ services:
       - "3306:3306"
     networks:
       - eprints_network
+    volumes:
+      - eprintsdb_data:/var/lib/mysql
 
   eprintshttpd:
     build:
@@ -25,9 +27,19 @@ services:
       - "80:80"
     networks:
       - eprints_network
+    volumes:
+      - eprintshttpd_data:/usr/share/eprints3
+      - eprintshttpd_etc:/etc/eprints3
+      - eprintshttpd_var:/var/lib/eprints3
     dns:
       - 8.8.8.8
 
 networks:
   eprints_network:
     driver: bridge
+
+volumes:
+  eprintsdb_data:
+  eprintshttpd_data:
+  eprintshttpd_etc:
+  eprintshttpd_var:
