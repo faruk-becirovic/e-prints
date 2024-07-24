@@ -6,10 +6,10 @@ services:
       context: .
       dockerfile: eprintsdb.dockerfile
     environment:
-      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_ROOT_PASSWORD: tameness-peddling-humped
       MYSQL_DATABASE: eprints
       MYSQL_USER: eprints_user
-      MYSQL_PASSWORD: eprints_password
+      MYSQL_PASSWORD: wilder-landscape-chrome
     ports:
       - "3306:3306"
     networks:

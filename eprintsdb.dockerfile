@@ -1,6 +1,7 @@
 FROM mysql:5.7
 
 # Set environment variables for MySQL
+# Make shure to synchronise any changes in docker-compose
 ENV MYSQL_ROOT_PASSWORD=tameness-peddling-humped
 ENV MYSQL_DATABASE=eprints
 ENV MYSQL_USER=eprints_user
