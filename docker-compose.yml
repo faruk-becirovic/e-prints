@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  eprintsdb:
+    build:
+      context: .
+      dockerfile: eprintsdb.dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: eprints
+      MYSQL_USER: eprints_user
+      MYSQL_PASSWORD: eprints_password
+    ports:
+      - "3306:3306"
+    networks:
+      - eprints_network
+
+  eprintshttpd:
+    build:
+      context: .
+      dockerfile: eprintshttpd.dockerfile
+    depends_on:
+      - eprintsdb
+    ports:
+      - "80:80"
+    networks:
+      - eprints_network
+    dns:
+      - 8.8.8.8
+
+networks:
+  eprints_network:
+    driver: bridge
